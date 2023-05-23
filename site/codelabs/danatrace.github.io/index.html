@@ -91,9 +91,80 @@ kube-system       Active   5h8m
 <tr><td colspan="1" rowspan="1"><p class="image-container"><img alt="Download Keypair" style="width: 700.00px" src="img/daaa0e4478ddc764.png"><br><br></p>
 </td></tr>
 </table>
-<h3 is-upgraded>Provide a name (for example pocsandbox), click the 2 &#34;Create Token&#34; buttons and then the Download dynakube.yaml button</h3>
+<h3 is-upgraded>Provide a name (for example pocsandbox)</h3>
+<h3 is-upgraded>Click the 2 &#34;Create Token&#34; buttons</h3>
+<h3 is-upgraded>and then the Download dynakube.yaml button</h3>
 <table>
 <tr><td colspan="1" rowspan="1"><p class="image-container"><img alt="Download Keypair" style="width: 700.00px" src="img/3d6322e2c3bb7739.png"><br><br></p>
+</td></tr>
+</table>
+<h3 is-upgraded>Copy the content of downloaded the dynakube.yaml</h3>
+<table>
+<tr><td colspan="1" rowspan="1"><p class="image-container"><img alt="Download Keypair" style="width: 700.00px" src="img/50710161085fbeb0.png"><br><br></p>
+</td></tr>
+</table>
+<h3 is-upgraded>Go back to the Shell Instance, create a new file with the name dynakube.yaml</h3>
+<pre><code language="language-bash" class="language-bash">nano dynakube.yaml
+</code></pre>
+<h3 is-upgraded>Copy the content of the downloaded dynakube.yaml into the newly created dynakube.yaml in the shell instance and save the file</h3>
+<table>
+<tr><td colspan="1" rowspan="1"><p class="image-container"><img alt="Download Keypair" style="width: 700.00px" src="img/ba31532642c001cf.png"><br><br></p>
+</td></tr>
+</table>
+<h3 is-upgraded>Copy the command section from the Install Dynatrace overview</h3>
+<table>
+<tr><td colspan="1" rowspan="1"><p class="image-container"><img alt="Download Keypair" style="width: 700.00px" src="img/df30fa82178c25cb.png"><br><br></p>
+</td></tr>
+</table>
+<h3 is-upgraded>Paste and execute the copied commands into the shell instance</h3>
+<pre><code language="language-bash" class="language-bash">kubectl create namespace dynatrace
+kubectl apply -f https://github.com/Dynatrace/dynatrace-operator/releases/download/v0.11.1/kubernetes.yaml
+kubectl -n dynatrace wait pod --for=condition=ready --selector=app.kubernetes.io/name=dynatrace-operator,app.kubernetes.io/component=webhook --timeout=300s
+kubectl apply -f dynakube.yaml
+</code></pre>
+<h3 is-upgraded>You should get the following result in the shell instance</h3>
+<table>
+<tr><td colspan="1" rowspan="1"><p class="image-container"><img alt="Download Keypair" style="width: 700.00px" src="img/9706e63401a82253.png"><br><br></p>
+</td></tr>
+</table>
+<h3 is-upgraded>Click on &#34;Show deployment Status&#34; in the Install Kubernetes overview in Dynatrace</h3>
+<table>
+<tr><td colspan="1" rowspan="1"><p class="image-container"><img alt="Download Keypair" style="width: 700.00px" src="img/821ab8b6bdbe0500.png"><br><br></p>
+</td></tr>
+</table>
+<h3 is-upgraded>The Agents will be displayed as soon as they make a connection</h3>
+<table>
+<tr><td colspan="1" rowspan="1"><p class="image-container"><img alt="Download Keypair" style="width: 700.00px" src="img/a292bd5027aa6db5.png"><br><br></p>
+</td></tr>
+</table>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Deploy Easytravel to Kubernetes Cluster" duration="0">
+        <h3 is-upgraded>In the shell instance cd into the directory</h3>
+<pre><code language="language-bash" class="language-bash">cd /home/ubuntu/poc-sandbox/apps/easytravel-k8s
+</code></pre>
+<h3 is-upgraded>Execute the file deploy_easytravel.sh file and wait until the script has completed</h3>
+<pre><code language="language-bash" class="language-bash">~/poc-sandbox/apps/easytravel-k8s$ ./deploy-easytravel.sh
+</code></pre>
+<h3 is-upgraded>When the script has completed it will output the url the loadbalancer url</h3>
+<table>
+<tr><td colspan="1" rowspan="1"><p class="image-container"><img alt="Download Keypair" style="width: 700.00px" src="img/4b77b8714dbbd48e.png"><br><br></p>
+</td></tr>
+</table>
+<h3 is-upgraded>Copy the Loadbalancer url and paste it into your browser</h3>
+<table>
+<tr><td colspan="1" rowspan="1"><p class="image-container"><img alt="Download Keypair" style="width: 700.00px" src="img/97208db40c78e3ef.png"><br><br></p>
+</td></tr>
+</table>
+<h3 is-upgraded>you have successfully deployed the easytravel app</h3>
+<h3 is-upgraded>to remove the easytravel app and loadbalancer execute the remove-easytravel.sh</h3>
+<pre><code language="language-bash" class="language-bash">~/poc-sandbox/apps/easytravel-k8s$ ./remove-easytravel.sh
+</code></pre>
+<h3 is-upgraded>this is the expected output after removal of the easytravel application</h3>
+<table>
+<tr><td colspan="1" rowspan="1"><p class="image-container"><img alt="Download Keypair" style="width: 700.00px" src="img/8fa8e48c5d80124e.png"><br><br></p>
 </td></tr>
 </table>
 
