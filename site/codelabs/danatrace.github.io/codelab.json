@@ -1,0 +1,25 @@
+{
+  "environment": "web",
+  "format": "html",
+  "prefix": "https://storage.googleapis.com",
+  "mainga": "UA-49880327-14",
+  "updated": "2023-05-23T20:02:14Z",
+  "id": "danatrace.github.io",
+  "duration": 1,
+  "title": "",
+  "authors": "daniel.braaf",
+  "summary": "POC Sandbox",
+  "source": "setup-sandbox-poc.md",
+  "theme": "",
+  "status": [
+    "published"
+  ],
+  "category": [
+    "sandbox",
+    "eks"
+  ],
+  "tags": [
+    "poc-sandbox"
+  ],
+  "url": "danatrace.github.io"
+}

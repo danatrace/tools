@@ -1,0 +1,112 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title></title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://storage.googleapis.com/claat-public/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="UA-49880327-14"></google-codelab-analytics>
+  <google-codelab codelab-gaid=""
+                  id="danatrace.github.io"
+                  title=""
+                  environment="web"
+                  feedback-link="">
+    
+      <google-codelab-step label="Welcome to the POC Sandbox" duration="1">
+        <p>Welcome to the Dynatrace POC-Sandbox. The POC-Sandbox is a hands on environment meant to demonstrate the ease of use of the Dynatrace Platform.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Connect to POC-Sandbox Shell Instance" duration="0">
+        <h3 is-upgraded>Download the key-pair file that is attached to the Sandbox creation completion email</h3>
+<table>
+<tr><td colspan="1" rowspan="1"><p class="image-container"><img alt="Download Keypair" style="width: 700.00px" src="img/d92fa2a034e4a9ed.png"><br><br></p>
+</td></tr>
+</table>
+<h3 is-upgraded>Save the keyfile to a folder of your choice</h3>
+<table>
+<tr><td colspan="1" rowspan="1"><p class="image-container"><img alt="Download Keypair" style="width: 700.00px" src="img/613f21a7f724cc4a.png"><br><br></p>
+</td></tr>
+</table>
+<h3 is-upgraded>Copy the ssh command from the Sandbox creation completion email</h3>
+<table>
+<tr><td colspan="1" rowspan="1"><p class="image-container"><img alt="Download Keypair" style="width: 700.00px" src="img/ea2c0bf5cee0d422.png"><br><br></p>
+</td></tr>
+</table>
+<h3 is-upgraded>Open a Command Line prompt and access the directory where the key was downloaded</h3>
+<h3 is-upgraded>Paste the ssh command from the Sandbox creation completion email</h3>
+<pre><code language="language-bash" class="language-bash">C:\Users\user\Downloads&gt; ssh -i {yourpemkeyname}.pem ubuntu@{yourinstancedns}.com
+</code></pre>
+<h3 is-upgraded>You have successfully connected to the shell instance with access to your POC-Sanbdox Cluster</h3>
+<table>
+<tr><td colspan="1" rowspan="1"><p class="image-container"><img alt="Download Keypair" style="width: 700.00px" src="img/5c9e148beecd5b0.png"><br><br></p>
+</td></tr>
+</table>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Connect shell instance to POC-Sanbox Kubernetes Cluster" duration="0">
+        <h3 is-upgraded>Copy the 2nd commands from the Sandbox creation completion email</h3>
+<table>
+<tr><td colspan="1" rowspan="1"><p class="image-container"><img alt="Download Keypair" style="width: 700.00px" src="img/80b84b00456715fc.png"><br><br></p>
+</td></tr>
+</table>
+<h3 is-upgraded>Paste the second command into your shell instance</h3>
+<pre><code language="language-bash" class="language-bash">aws eks --region us-east-1 update-kubeconfig --name {your-tenant-id}-sandbox
+</code></pre>
+<h3 is-upgraded>Test if the connection was successful with the following command</h3>
+<pre><code language="language-bash" class="language-bash">kubectl get namespaces
+</code></pre>
+<h3 is-upgraded>Your output should look like this</h3>
+<pre><code language="language-bash" class="language-bash">NAME              STATUS   AGE
+default           Active   5h8m
+kube-node-lease   Active   5h8m
+kube-public       Active   5h8m
+kube-system       Active   5h8m
+</code></pre>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Connect Dynatrace with the Kubernetes cluster" duration="0">
+        <h3 is-upgraded>In the Dynatrace UI Navigate to Deploy Agent -&gt; Kuberentes</h3>
+<table>
+<tr><td colspan="1" rowspan="1"><p class="image-container"><img alt="Download Keypair" style="width: 700.00px" src="img/daaa0e4478ddc764.png"><br><br></p>
+</td></tr>
+</table>
+<h3 is-upgraded>Provide a name (for example pocsandbox), click the 2 &#34;Create Token&#34; buttons and then the Download dynakube.yaml button</h3>
+<table>
+<tr><td colspan="1" rowspan="1"><p class="image-container"><img alt="Download Keypair" style="width: 700.00px" src="img/3d6322e2c3bb7739.png"><br><br></p>
+</td></tr>
+</table>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://storage.googleapis.com/claat-public/native-shim.js"></script>
+  <script src="https://storage.googleapis.com/claat-public/custom-elements.min.js"></script>
+  <script src="https://storage.googleapis.com/claat-public/prettify.js"></script>
+  <script src="https://storage.googleapis.com/claat-public/codelab-elements.js"></script>
+  <script src="//support.google.com/inapp/api.js"></script>
+
+</body>
+</html>
