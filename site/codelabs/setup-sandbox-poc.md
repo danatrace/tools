@@ -10,10 +10,14 @@ Duration: 1
 
 Welcome to the Dynatrace POC-Sandbox.
 The POC-Sandbox is a hands on environment meant to demonstrate the ease of use of the Dynatrace Platform. 
+The POC-Sandbox infrastructure consists of
+* a Kubernetes Cluster with 3 Nodes
+* a Shell Instance that can connect to the cluster and perform kubectl commands
+* Example apps that can be deployed to the cluster 
 
 
 ## Connect to POC-Sandbox Shell Instance
-
+Duration: 5
 #### Download the key-pair file that is attached to the Sandbox creation completion email
 
 <table style="width:100%;">
@@ -45,7 +49,7 @@ The POC-Sandbox is a hands on environment meant to demonstrate the ease of use o
   </tr>
 </table>
 
-#### Open a Command Line prompt and access the directory where the key was downloaded
+#### Open a Command Line prompt and access the directory where the key was downloaded to
 #### Paste the ssh command from the Sandbox creation completion email
 ```bash
 C:\Users\user\Downloads> ssh -i {yourpemkeyname}.pem ubuntu@{yourinstancedns}.com
@@ -59,10 +63,10 @@ C:\Users\user\Downloads> ssh -i {yourpemkeyname}.pem ubuntu@{yourinstancedns}.co
   </tr>
 </table>
 
-## Connect shell instance to POC-Sanbox Kubernetes Cluster
+## Connect shell instance to POC-Sanbox K8s Cluster
 
 
-#### Copy the 2nd commands from the Sandbox creation completion email
+#### Copy the 2nd command from the Sandbox creation completion email
 
 <table style="width:100%;">
   <tr>
@@ -90,9 +94,9 @@ kube-public       Active   5h8m
 kube-system       Active   5h8m
 ```
 
-## Connect Dynatrace with the Kubernetes cluster
+## Connect Dynatrace with the POC-Sandbox (K8s-CLuster)
 
-#### In the Dynatrace UI Navigate to Deploy Agent -> Kuberentes
+#### In the Dynatrace UI Navigate to Deploy Agent -> Kubernetes
 
 <table style="width:100%;">
   <tr>
@@ -100,9 +104,7 @@ kube-system       Active   5h8m
   </tr>
 </table>
 
-#### Provide a name (for example pocsandbox)
-#### Click the 2 "Create Token" buttons 
-#### and then the Download dynakube.yaml button
+#### Provide a name, click the 2 "Create Token" buttons, click the Download dynakube.yaml button
 
 <table style="width:100%;">
   <tr>
@@ -110,7 +112,7 @@ kube-system       Active   5h8m
   </tr>
 </table>
 
-#### Copy the content of downloaded the dynakube.yaml
+#### Copy the content of the downloaded dynakube.yaml
 
 <table style="width:100%;">
   <tr>
@@ -149,7 +151,7 @@ kubectl -n dynatrace wait pod --for=condition=ready --selector=app.kubernetes.io
 kubectl apply -f dynakube.yaml
 ```
 
-#### You should get the following result in the shell instance
+#### You should get the following output in the shell instance
 
 <table style="width:100%;">
   <tr>
@@ -165,7 +167,7 @@ kubectl apply -f dynakube.yaml
   </tr>
 </table>
 
-#### The Agents will be displayed as soon as they make a connection
+#### The Agents will be displayed as soon as they make a connection 
 
 <table style="width:100%;">
   <tr>
@@ -173,20 +175,20 @@ kubectl apply -f dynakube.yaml
   </tr>
 </table>
 
-## Deploy Easytravel to Kubernetes Cluster
+## Deploy Easytravel 
 
-#### In the shell instance cd into the directory 
+#### In the shell instance cd into the easytravel-k8s directory 
 
 ```bash
 cd /home/ubuntu/poc-sandbox/apps/easytravel-k8s
 ```
 
-#### Execute the file deploy_easytravel.sh file and wait until the script has completed
+#### Run the script deploy_easytravel.sh and wait until the script has completed
 ```bash
 ~/poc-sandbox/apps/easytravel-k8s$ ./deploy-easytravel.sh
 ```
 
-#### When the script has completed it will output the url the loadbalancer url
+#### When the script has completed it will output the url the loadbalancer 
 
 <table style="width:100%;">
   <tr>
@@ -194,7 +196,7 @@ cd /home/ubuntu/poc-sandbox/apps/easytravel-k8s
   </tr>
 </table>
 
-#### Copy the Loadbalancer url and paste it into your browser
+#### Copy the loadbalancer url and paste it into your browser
 
 <table style="width:100%;">
   <tr>
@@ -204,7 +206,7 @@ cd /home/ubuntu/poc-sandbox/apps/easytravel-k8s
 
 #### you have successfully deployed the easytravel app 
 
-#### to remove the easytravel app and loadbalancer execute the remove-easytravel.sh
+#### to remove the easytravel app run remove-easytravel.sh
 ```bash
 ~/poc-sandbox/apps/easytravel-k8s$ ./remove-easytravel.sh
 ```
@@ -214,5 +216,132 @@ cd /home/ubuntu/poc-sandbox/apps/easytravel-k8s
 <table style="width:100%;">
   <tr>
  <td><img align="center" src="assets/removeeasytravel.png" alt="Download Keypair" width="700" height="700" ><br><br></td>
+  </tr>
+</table>
+
+
+## Deploy Dynabank 
+
+#### In the shell instance cd into the directory 
+
+```bash
+cd /home/ubuntu/poc-sandbox/apps/dynabank
+```
+
+#### Run the script deploy_dynabank.sh and wait until the script has completed
+```bash
+~/poc-sandbox/apps/dynabank$ ./deploy-dynabank.sh
+```
+
+#### When the script has completed it will output the loadbalancer url
+
+<table style="width:100%;">
+  <tr>
+ <td><img align="center" src="assets/deploydynabank.png" alt="Download Keypair" width="700" height="700" ><br><br></td>
+  </tr>
+</table>
+
+#### Copy the Loadbalancer url and paste it into your browser
+
+<table style="width:100%;">
+  <tr>
+ <td><img align="center" src="assets/dynabankapp.png" alt="Download Keypair" width="700" height="700" ><br><br></td>
+  </tr>
+</table>
+
+#### you have successfully deployed the dynabank app 
+
+#### to remove the dynabank app and loadbalancer execute the remove-dynabank.sh
+```bash
+~/poc-sandbox/apps/dynabank$ ./remove-dynabank.sh
+```
+
+#### this is the expected output after removal of the dynabank application
+
+<table style="width:100%;">
+  <tr>
+ <td><img align="center" src="assets/dynabankremove.png" alt="Download Keypair" width="700" height="700" ><br><br></td>
+  </tr>
+</table>
+
+
+## Deploy Bobbleneers 
+
+#### In the shell instance cd into the directory 
+
+```bash
+cd /home/ubuntu/poc-sandbox/apps/bobbleneers
+```
+
+#### Run the file deploy_bobbleneers.sh and wait until the script has completed
+```bash
+~/poc-sandbox/apps/bobbleneers$ ./deploy-bobbleneers.sh
+```
+
+#### When the script has completed it will output the following 
+
+<table style="width:100%;">
+  <tr>
+ <td><img align="center" src="assets/deploybobbleneers.png" alt="Download Keypair" width="700" height="700" ><br><br></td>
+  </tr>
+</table>
+
+
+#### you have successfully deployed the bobbleneers app 
+
+#### to remove the Bobbleneers app and loadbalancer run remove-bobbleneers.sh
+```bash
+~/poc-sandbox/apps/bobbleneers$ ./remove-bobbleneers.sh
+```
+
+#### this is the expected output after removal of the bobbleneers application
+
+<table style="width:100%;">
+  <tr>
+ <td><img align="center" src="assets/bobbleneersremove.png" alt="Download Keypair" width="700" height="700" ><br><br></td>
+  </tr>
+</table>
+
+## Deploy Simplcommerce 
+
+#### In the shell instance cd into the directory 
+
+```bash
+cd /home/ubuntu/poc-sandbox/apps/simplcommerce
+```
+
+#### Run the script deploy_simplcommerce.sh and wait until the script has completed
+```bash
+~/poc-sandbox/apps/simplcommerce$ ./deploy-simplcommerce.sh
+```
+
+#### When the script has completed it will output the loadbalancer url
+
+<table style="width:100%;">
+  <tr>
+ <td><img align="center" src="assets/deploysimplcommerce.png" alt="Download Keypair" width="700" height="700" ><br><br></td>
+  </tr>
+</table>
+
+#### Copy the Loadbalancer url and paste it into your browser
+
+<table style="width:100%;">
+  <tr>
+ <td><img align="center" src="assets/simplcommerceapp.png" alt="Download Keypair" width="700" height="700" ><br><br></td>
+  </tr>
+</table>
+
+#### you have successfully deployed the simplcommerce app 
+
+#### to remove the simplcommerce app and loadbalancer run remove-simplcommerce.sh
+```bash
+~/poc-sandbox/apps/simplcommerce$ ./remove-simplcommerce.sh
+```
+
+#### this is the expected output after removal of the simplcommerce application
+
+<table style="width:100%;">
+  <tr>
+ <td><img align="center" src="assets/dynabankremove.png" alt="Download Keypair" width="700" height="700" ><br><br></td>
   </tr>
 </table>
