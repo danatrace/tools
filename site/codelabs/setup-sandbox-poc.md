@@ -72,7 +72,7 @@ C:\Users\user\Downloads> ssh -i {yourpemkeyname}.pem ubuntu@{yourinstancedns}.co
 </table>
 
 ## Connect shell instance to POC-Sanbox K8s Cluster
-
+Duration: 1
 
 #### Copy the 2nd command from the Sandbox creation completion email
 
@@ -103,7 +103,7 @@ kube-system       Active   5h8m
 ```
 
 ## Connect Dynatrace with the POC-Sandbox (K8s-CLuster)
-
+Duration: 5
 #### In the Dynatrace UI Navigate to Deploy Agent -> Kubernetes
 
 <table style="width:100%;">
@@ -183,7 +183,100 @@ kubectl apply -f dynakube.yaml
   </tr>
 </table>
 
+## Deploy Dynabank 
+Duration: 5
+
+#### In the shell instance cd into the directory 
+
+```bash
+cd /home/ubuntu/poc-sandbox/apps/dynabank
+```
+
+#### Run the script deploy_dynabank.sh and wait until the script has completed
+```bash
+~/poc-sandbox/apps/dynabank$ ./deploy-dynabank.sh
+```
+
+#### When the script has completed it will output the loadbalancer url
+
+<table style="width:100%;">
+  <tr>
+ <td><img align="center" src="assets/deploydynabank.png" alt="Download Keypair" width="700" height="700" ><br><br></td>
+  </tr>
+</table>
+
+#### Copy the Loadbalancer url and paste it into your browser
+
+<table style="width:100%;">
+  <tr>
+ <td><img align="center" src="assets/dynabankapp.png" alt="Download Keypair" width="700" height="700" ><br><br></td>
+  </tr>
+</table>
+
+#### you have successfully deployed the dynabank app 
+#### Dynabank use cases and How to Links:
+[Dynabank Workshop](https://www.suchcodewow.io/docs/intro) <br>
+[Dynabank Full Stack front to Back](https://www.suchcodewow.io/docs/FullStack)
+
+#### to remove the dynabank app and loadbalancer execute the remove-dynabank.sh
+```bash
+~/poc-sandbox/apps/dynabank$ ./remove-dynabank.sh
+```
+
+#### this is the expected output after removal of the dynabank application
+
+<table style="width:100%;">
+  <tr>
+ <td><img align="center" src="assets/dynabankremove.png" alt="Download Keypair" width="700" height="700" ><br><br></td>
+  </tr>
+</table>
+
+
+## Deploy Bobbleneers 
+Duration: 5
+
+#### In the shell instance cd into the directory 
+
+```bash
+cd /home/ubuntu/poc-sandbox/apps/bobbleneers
+```
+
+#### Run the file deploy_bobbleneers.sh and wait until the script has completed
+```bash
+~/poc-sandbox/apps/bobbleneers$ ./deploy-bobbleneers.sh
+```
+
+#### When the script has completed it will output the following 
+
+<table style="width:100%;">
+  <tr>
+ <td><img align="center" src="assets/deploybobbleneers.png" alt="Download Keypair" width="700" height="700" ><br><br></td>
+  </tr>
+</table>
+
+
+#### you have successfully deployed the bobbleneers app 
+#### Bobbleneers use cases and How to Links:
+
+[Bobbleneers Workshop](https://www.suchcodewow.io/docs/intro) <br>
+[Bobbleneers App](https://www.suchcodewow.io/docs/apps/bnos) 
+
+
+#### to remove the Bobbleneers app and loadbalancer run remove-bobbleneers.sh
+```bash
+~/poc-sandbox/apps/bobbleneers$ ./remove-bobbleneers.sh
+```
+
+#### this is the expected output after removal of the bobbleneers application
+
+<table style="width:100%;">
+  <tr>
+ <td><img align="center" src="assets/bobbleneersremove.png" alt="Download Keypair" width="700" height="700" ><br><br></td>
+  </tr>
+</table>
+
 ## Deploy Easytravel 
+Duration: 5
 
 #### In the shell instance cd into the easytravel-k8s directory 
 
@@ -227,90 +320,8 @@ cd /home/ubuntu/poc-sandbox/apps/easytravel-k8s
   </tr>
 </table>
 
-
-## Deploy Dynabank 
-
-#### In the shell instance cd into the directory 
-
-```bash
-cd /home/ubuntu/poc-sandbox/apps/dynabank
-```
-
-#### Run the script deploy_dynabank.sh and wait until the script has completed
-```bash
-~/poc-sandbox/apps/dynabank$ ./deploy-dynabank.sh
-```
-
-#### When the script has completed it will output the loadbalancer url
-
-<table style="width:100%;">
-  <tr>
- <td><img align="center" src="assets/deploydynabank.png" alt="Download Keypair" width="700" height="700" ><br><br></td>
-  </tr>
-</table>
-
-#### Copy the Loadbalancer url and paste it into your browser
-
-<table style="width:100%;">
-  <tr>
- <td><img align="center" src="assets/dynabankapp.png" alt="Download Keypair" width="700" height="700" ><br><br></td>
-  </tr>
-</table>
-
-#### you have successfully deployed the dynabank app 
-
-#### to remove the dynabank app and loadbalancer execute the remove-dynabank.sh
-```bash
-~/poc-sandbox/apps/dynabank$ ./remove-dynabank.sh
-```
-
-#### this is the expected output after removal of the dynabank application
-
-<table style="width:100%;">
-  <tr>
- <td><img align="center" src="assets/dynabankremove.png" alt="Download Keypair" width="700" height="700" ><br><br></td>
-  </tr>
-</table>
-
-
-## Deploy Bobbleneers 
-
-#### In the shell instance cd into the directory 
-
-```bash
-cd /home/ubuntu/poc-sandbox/apps/bobbleneers
-```
-
-#### Run the file deploy_bobbleneers.sh and wait until the script has completed
-```bash
-~/poc-sandbox/apps/bobbleneers$ ./deploy-bobbleneers.sh
-```
-
-#### When the script has completed it will output the following 
-
-<table style="width:100%;">
-  <tr>
- <td><img align="center" src="assets/deploybobbleneers.png" alt="Download Keypair" width="700" height="700" ><br><br></td>
-  </tr>
-</table>
-
-
-#### you have successfully deployed the bobbleneers app 
-
-#### to remove the Bobbleneers app and loadbalancer run remove-bobbleneers.sh
-```bash
-~/poc-sandbox/apps/bobbleneers$ ./remove-bobbleneers.sh
-```
-
-#### this is the expected output after removal of the bobbleneers application
-
-<table style="width:100%;">
-  <tr>
- <td><img align="center" src="assets/bobbleneersremove.png" alt="Download Keypair" width="700" height="700" ><br><br></td>
-  </tr>
-</table>
-
 ## Deploy Simplcommerce 
+Duration: 5
 
 #### In the shell instance cd into the directory 
 

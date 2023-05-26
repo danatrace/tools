@@ -72,7 +72,7 @@
 
       </google-codelab-step>
     
-      <google-codelab-step label="Connect shell instance to POC-Sanbox K8s Cluster" duration="0">
+      <google-codelab-step label="Connect shell instance to POC-Sanbox K8s Cluster" duration="1">
         <h3 is-upgraded>Copy the 2nd command from the Sandbox creation completion email</h3>
 <table>
 <tr><td colspan="1" rowspan="1"><p class="image-container"><img alt="Download Keypair" style="width: 700.00px" src="img/80b84b00456715fc.png"><br><br></p>
@@ -95,7 +95,7 @@ kube-system       Active   5h8m
 
       </google-codelab-step>
     
-      <google-codelab-step label="Connect Dynatrace with the POC-Sandbox (K8s-CLuster)" duration="0">
+      <google-codelab-step label="Connect Dynatrace with the POC-Sandbox (K8s-CLuster)" duration="5">
         <h3 is-upgraded>In the Dynatrace UI Navigate to Deploy Agent -&gt; Kubernetes</h3>
 <table>
 <tr><td colspan="1" rowspan="1"><p class="image-container"><img alt="Download Keypair" style="width: 700.00px" src="img/daaa0e4478ddc764.png"><br><br></p>
@@ -149,7 +149,66 @@ kubectl apply -f dynakube.yaml
 
       </google-codelab-step>
     
-      <google-codelab-step label="Deploy Easytravel" duration="0">
+      <google-codelab-step label="Deploy Dynabank" duration="5">
+        <h3 is-upgraded>In the shell instance cd into the directory</h3>
+<pre><code language="language-bash" class="language-bash">cd /home/ubuntu/poc-sandbox/apps/dynabank
+</code></pre>
+<h3 is-upgraded>Run the script deploy_dynabank.sh and wait until the script has completed</h3>
+<pre><code language="language-bash" class="language-bash">~/poc-sandbox/apps/dynabank$ ./deploy-dynabank.sh
+</code></pre>
+<h3 is-upgraded>When the script has completed it will output the loadbalancer url</h3>
+<table>
+<tr><td colspan="1" rowspan="1"><p class="image-container"><img alt="Download Keypair" style="width: 700.00px" src="img/faab9efb6765da67.png"><br><br></p>
+</td></tr>
+</table>
+<h3 is-upgraded>Copy the Loadbalancer url and paste it into your browser</h3>
+<table>
+<tr><td colspan="1" rowspan="1"><p class="image-container"><img alt="Download Keypair" style="width: 700.00px" src="img/6970ed1da1c0770a.png"><br><br></p>
+</td></tr>
+</table>
+<h3 is-upgraded>you have successfully deployed the dynabank app</h3>
+<h3 is-upgraded>Dynabank use cases and How to Links:</h3>
+<p><a href="https://www.suchcodewow.io/docs/intro" target="_blank">Dynabank Workshop</a> <br><a href="https://www.suchcodewow.io/docs/FullStack" target="_blank">Dynabank Full Stack front to Back</a></p>
+<h3 is-upgraded>to remove the dynabank app and loadbalancer execute the remove-dynabank.sh</h3>
+<pre><code language="language-bash" class="language-bash">~/poc-sandbox/apps/dynabank$ ./remove-dynabank.sh
+</code></pre>
+<h3 is-upgraded>this is the expected output after removal of the dynabank application</h3>
+<table>
+<tr><td colspan="1" rowspan="1"><p class="image-container"><img alt="Download Keypair" style="width: 700.00px" src="img/c472d528ca779a53.png"><br><br></p>
+</td></tr>
+</table>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Deploy Bobbleneers" duration="5">
+        <h3 is-upgraded>In the shell instance cd into the directory</h3>
+<pre><code language="language-bash" class="language-bash">cd /home/ubuntu/poc-sandbox/apps/bobbleneers
+</code></pre>
+<h3 is-upgraded>Run the file deploy_bobbleneers.sh and wait until the script has completed</h3>
+<pre><code language="language-bash" class="language-bash">~/poc-sandbox/apps/bobbleneers$ ./deploy-bobbleneers.sh
+</code></pre>
+<h3 is-upgraded>When the script has completed it will output the following</h3>
+<table>
+<tr><td colspan="1" rowspan="1"><p class="image-container"><img alt="Download Keypair" style="width: 700.00px" src="img/5736c3a30d3579a.png"><br><br></p>
+</td></tr>
+</table>
+<h3 is-upgraded>you have successfully deployed the bobbleneers app</h3>
+<h3 is-upgraded>Bobbleneers use cases and How to Links:</h3>
+<p><a href="https://www.suchcodewow.io/docs/intro" target="_blank">Bobbleneers Workshop</a> <br><a href="https://www.suchcodewow.io/docs/apps/bnos" target="_blank">Bobbleneers App</a></p>
+<h3 is-upgraded>to remove the Bobbleneers app and loadbalancer run remove-bobbleneers.sh</h3>
+<pre><code language="language-bash" class="language-bash">~/poc-sandbox/apps/bobbleneers$ ./remove-bobbleneers.sh
+</code></pre>
+<h3 is-upgraded>this is the expected output after removal of the bobbleneers application</h3>
+<table>
+<tr><td colspan="1" rowspan="1"><p class="image-container"><img alt="Download Keypair" style="width: 700.00px" src="img/9cf2c7c0b6d912c0.png"><br><br></p>
+</td></tr>
+</table>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Deploy Easytravel" duration="5">
         <h3 is-upgraded>In the shell instance cd into the easytravel-k8s directory</h3>
 <pre><code language="language-bash" class="language-bash">cd /home/ubuntu/poc-sandbox/apps/easytravel-k8s
 </code></pre>
@@ -179,62 +238,7 @@ kubectl apply -f dynakube.yaml
 
       </google-codelab-step>
     
-      <google-codelab-step label="Deploy Dynabank" duration="0">
-        <h3 is-upgraded>In the shell instance cd into the directory</h3>
-<pre><code language="language-bash" class="language-bash">cd /home/ubuntu/poc-sandbox/apps/dynabank
-</code></pre>
-<h3 is-upgraded>Run the script deploy_dynabank.sh and wait until the script has completed</h3>
-<pre><code language="language-bash" class="language-bash">~/poc-sandbox/apps/dynabank$ ./deploy-dynabank.sh
-</code></pre>
-<h3 is-upgraded>When the script has completed it will output the loadbalancer url</h3>
-<table>
-<tr><td colspan="1" rowspan="1"><p class="image-container"><img alt="Download Keypair" style="width: 700.00px" src="img/faab9efb6765da67.png"><br><br></p>
-</td></tr>
-</table>
-<h3 is-upgraded>Copy the Loadbalancer url and paste it into your browser</h3>
-<table>
-<tr><td colspan="1" rowspan="1"><p class="image-container"><img alt="Download Keypair" style="width: 700.00px" src="img/6970ed1da1c0770a.png"><br><br></p>
-</td></tr>
-</table>
-<h3 is-upgraded>you have successfully deployed the dynabank app</h3>
-<h3 is-upgraded>to remove the dynabank app and loadbalancer execute the remove-dynabank.sh</h3>
-<pre><code language="language-bash" class="language-bash">~/poc-sandbox/apps/dynabank$ ./remove-dynabank.sh
-</code></pre>
-<h3 is-upgraded>this is the expected output after removal of the dynabank application</h3>
-<table>
-<tr><td colspan="1" rowspan="1"><p class="image-container"><img alt="Download Keypair" style="width: 700.00px" src="img/c472d528ca779a53.png"><br><br></p>
-</td></tr>
-</table>
-
-
-      </google-codelab-step>
-    
-      <google-codelab-step label="Deploy Bobbleneers" duration="0">
-        <h3 is-upgraded>In the shell instance cd into the directory</h3>
-<pre><code language="language-bash" class="language-bash">cd /home/ubuntu/poc-sandbox/apps/bobbleneers
-</code></pre>
-<h3 is-upgraded>Run the file deploy_bobbleneers.sh and wait until the script has completed</h3>
-<pre><code language="language-bash" class="language-bash">~/poc-sandbox/apps/bobbleneers$ ./deploy-bobbleneers.sh
-</code></pre>
-<h3 is-upgraded>When the script has completed it will output the following</h3>
-<table>
-<tr><td colspan="1" rowspan="1"><p class="image-container"><img alt="Download Keypair" style="width: 700.00px" src="img/5736c3a30d3579a.png"><br><br></p>
-</td></tr>
-</table>
-<h3 is-upgraded>you have successfully deployed the bobbleneers app</h3>
-<h3 is-upgraded>to remove the Bobbleneers app and loadbalancer run remove-bobbleneers.sh</h3>
-<pre><code language="language-bash" class="language-bash">~/poc-sandbox/apps/bobbleneers$ ./remove-bobbleneers.sh
-</code></pre>
-<h3 is-upgraded>this is the expected output after removal of the bobbleneers application</h3>
-<table>
-<tr><td colspan="1" rowspan="1"><p class="image-container"><img alt="Download Keypair" style="width: 700.00px" src="img/9cf2c7c0b6d912c0.png"><br><br></p>
-</td></tr>
-</table>
-
-
-      </google-codelab-step>
-    
-      <google-codelab-step label="Deploy Simplcommerce" duration="0">
+      <google-codelab-step label="Deploy Simplcommerce" duration="5">
         <h3 is-upgraded>In the shell instance cd into the directory</h3>
 <pre><code language="language-bash" class="language-bash">cd /home/ubuntu/poc-sandbox/apps/simplcommerce
 </code></pre>
