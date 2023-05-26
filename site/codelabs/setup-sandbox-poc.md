@@ -11,9 +11,17 @@ Duration: 1
 Welcome to the Dynatrace POC-Sandbox.
 The POC-Sandbox is a hands on environment meant to demonstrate the ease of use of the Dynatrace Platform. 
 The POC-Sandbox infrastructure consists of
+
+<table style="width:100%;">
+  <tr>
+  <td><img align="center" src="assets/POC-SANDBOX.png" alt="Download Keypair" width="700" height="700" ><br><br></td>
+  </tr>
+</table>
+
 * a Kubernetes Cluster with 3 Nodes
-* a Shell Instance that can connect to the cluster and perform kubectl commands
-* Example apps that can be deployed to the cluster 
+* a Linux Shell Instance that can connect to the cluster and perform kubectl commands
+* The Shell Instance also contains Example apps that can be deployed to the cluster
+* This codelab will take you through connecting to the shell instance, the cluster, connect the cluster to Dynatrace and Deploy Example Applications 
 
 
 ## Connect to POC-Sandbox Shell Instance
